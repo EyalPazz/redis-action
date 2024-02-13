@@ -22,7 +22,7 @@ runs:
     - name: Start Redis Container
       id: start_container
       run: |
-        CONTAINER_ID=$(docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest)
+        CONTAINER_ID=$(docker run --rm -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest)
         if [[ -z "$CONTAINER_ID" ]]; then
           echo "Failed to start Redis container"
           exit 1
